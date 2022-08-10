@@ -13,7 +13,6 @@ export default function Search(props){
         if(query.length >0){
             const getBooks = async () =>{
                 const booksResult = await search(query, 1)
-                // console.log ("search: ", query, booksResult)
                 booksResult.error === "empty query" ? console.log("No results found") : setBooks(booksResult)
             }
             getBooks()

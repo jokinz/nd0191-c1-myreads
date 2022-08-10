@@ -13,11 +13,9 @@ function App() {
   }
   useEffect(() => {
     getBooks()
-    // console.log("all books: ", books)
 }, [books]);
   const updateBookStatus = async(id, shelf) =>{
       const bookToUpdate = await get(id)
-      console.log("update book ", bookToUpdate)
       await update(bookToUpdate, shelf)
   }
   return (

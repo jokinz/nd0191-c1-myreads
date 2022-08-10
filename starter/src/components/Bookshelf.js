@@ -3,7 +3,6 @@ export default function Bookshelf({books, title, bookStatus, updateBookStatus}){
     books = books.filter(book =>{
         return book.shelf === bookStatus
     })
-    // console.log("filtered books: ", books)
     return(
         <div className="bookshelf">
             <h2 className="bookshelf-title">{title}</h2>

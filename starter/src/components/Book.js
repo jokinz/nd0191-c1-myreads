@@ -1,7 +1,6 @@
 import { useState } from "react"
 
 export default function Book(props){
-    // console.log(props.book)
     const id = props.book.id
     const title = props.book.title
     const authors = props.book.authors
@@ -11,10 +10,7 @@ export default function Book(props){
     const [bookStatus, setBookStatus] = useState(props.bookStatus)
     
     const handleChange = (event) =>{
-        // event.preventDefault()
-        console.log("handleChange called for id", id)
         setBookStatus(event.target.value)
-        console.log(bookStatus)
         updateBookStatus(id, event.target.value)
     }
 
