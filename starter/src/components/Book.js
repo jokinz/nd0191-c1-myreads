@@ -1,4 +1,6 @@
 import { useState } from "react"
+import React from "react"
+
 
 export default function Book(props){
     const id = props.book.id
@@ -8,6 +10,7 @@ export default function Book(props){
     const updateBookStatus = props.updateBookStatus
     
     const [bookStatus, setBookStatus] = useState(props.bookStatus)
+    
     const handleChange = (event) =>{
         setBookStatus(event.target.value)
         updateBookStatus(id, event.target.value)
@@ -27,8 +30,8 @@ export default function Book(props){
                     }}
                     ></div>
                     <div className="book-shelf-changer">
-                    <select onChange={handleChange} value={bookStatus}>
-                        <option value="none" disabled>
+                    <select onChange={handleChange} value={!bookStatus ? "none" : bookStatus}>
+                        <option disabled>
                         Move to...
                         </option>
                         <option value="currentlyReading">

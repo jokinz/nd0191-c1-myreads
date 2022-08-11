@@ -32,7 +32,7 @@ export default function Search(props){
             const getBooks = async () =>{
                 let booksResults = await search(query, 20)
                 booksResults.error === "empty query" 
-                ? console.log("No results found") 
+                ? setBooks([]) 
                 : setBooks(booksResults)
             }
             getBooks()
