@@ -1,14 +1,26 @@
 import Book from "./Book"
-export default function Bookshelf({books, title, bookStatus, updateBookStatus}){
-    books = books.filter(book =>{
-        return book.shelf === bookStatus
-    })
+export default function Bookshelf(props){
+
+    let books = props.books
+    const title = props.title !== undefined ? props.title : ""
+    const bookStatus = props.bookStatus !== undefined ? props.bookStatus : ""
+    const updateBookStatus = props.updateBookStatus
+    if (bookStatus){
+        books = books.filter(book =>{
+            return book.shelf === bookStatus
+        })
+    }
     return(
         <div className="bookshelf">
-            <h2 className="bookshelf-title">{title}</h2>
+            {
+                title ? 
+                <h2 className="bookshelf-title">{title}</h2>
+                : ""
+            }
             <div className="bookshelf-books">
                 <ol className="books-grid">
                 {
+                    books ?
                     books.map((book) =>(
                         <Book 
                             key={book.id}
@@ -17,6 +29,7 @@ export default function Bookshelf({books, title, bookStatus, updateBookStatus}){
                             bookStatus={bookStatus}
                         />
                     ))
+                    : ""
                 }
                 </ol>
             </div>
