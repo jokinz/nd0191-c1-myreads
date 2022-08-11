@@ -4,11 +4,10 @@ export default function Book(props){
     const id = props.book.id
     const title = props.book.title
     const authors = props.book.authors
-    const image = props.book.imageLinks.thumbnail
+    const image = props.book.imageLinks ? props.book.imageLinks.thumbnail : ""
     const updateBookStatus = props.updateBookStatus
-
-    const [bookStatus, setBookStatus] = useState(props.bookStatus)
     
+    const [bookStatus, setBookStatus] = useState(props.bookStatus)
     const handleChange = (event) =>{
         setBookStatus(event.target.value)
         updateBookStatus(id, event.target.value)

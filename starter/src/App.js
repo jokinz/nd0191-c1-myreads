@@ -13,10 +13,11 @@ function App() {
   }
   useEffect(() => {
     getBooks()
-}, [books]);
+}, []);
   const updateBookStatus = async(id, shelf) =>{
       const bookToUpdate = await get(id)
       await update(bookToUpdate, shelf)
+      getBooks()
   }
   return (
     <BrowserRouter>
